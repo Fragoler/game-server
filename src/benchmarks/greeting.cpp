@@ -1,4 +1,4 @@
-#include <greeting.hpp>
+#include <server/view/greeting.hpp>
 
 #include <cstdint>   // for std::uint64_t
 #include <iterator>  // for std::size

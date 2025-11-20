@@ -11,18 +11,18 @@
 
 #include <userver/utils/daemon_run.hpp>
 
-#include <hello.hpp>
+#include <server/view/hello.hpp>
 
 int main(int argc, char* argv[]) {
-    auto component_list = userver::components::MinimalServerComponentList()
-                              .Append<userver::server::handlers::Ping>()
-                              .Append<userver::components::TestsuiteSupport>()
-                              .Append<userver::components::HttpClient>()
-                              .Append<userver::clients::dns::Component>()
-                              .Append<userver::server::handlers::TestsControl>()
-                              .Append<userver::congestion_control::Component>()
-                              .Append<game_server::Hello>()
-        ;
+  auto component_list = userver::components::MinimalServerComponentList()
+                            .Append<userver::server::handlers::Ping>()
+                            .Append<userver::components::TestsuiteSupport>()
+                            .Append<userver::components::HttpClient>()
+                            .Append<userver::clients::dns::Component>()
+                            .Append<userver::server::handlers::TestsControl>()
+                            .Append<userver::congestion_control::Component>()
+                            .Append<game_server::Hello>()
+      ;
 
-    return userver::utils::DaemonMain(argc, argv, component_list);
+  return userver::utils::DaemonMain(argc, argv, component_list);
 }

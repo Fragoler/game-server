@@ -1,6 +1,6 @@
-#include <hello.hpp>
+#include <server/view/hello.hpp>
+#include <server/view/greeting.hpp>
 
-#include <greeting.hpp>
 
 namespace game_server {
 

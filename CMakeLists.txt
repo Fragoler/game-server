@@ -22,8 +22,8 @@ include_directories(src)
 
 add_library(
     ${PROJECT_NAME}_objs OBJECT
-    src/greeting.cpp #
-    src/hello.cpp #
+    src/server/view/greeting.cpp #
+    src/server/view/hello.cpp #
 )
 target_link_libraries(
     ${PROJECT_NAME}_objs
@@ -36,12 +36,12 @@ add_executable(${PROJECT_NAME} src/main.cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}_objs)
 
 # Unit Tests
-add_executable(${PROJECT_NAME}_unittest src/greeting_test.cpp)
+add_executable(${PROJECT_NAME}_unittest src/tests/greeting.cpp)
 target_link_libraries(${PROJECT_NAME}_unittest PRIVATE ${PROJECT_NAME}_objs userver::utest)
 add_google_tests(${PROJECT_NAME}_unittest)
 
 # Benchmarks
-add_executable(${PROJECT_NAME}_benchmark src/greeting_benchmark.cpp)
+add_executable(${PROJECT_NAME}_benchmark src/benchmarks/greeting.cpp)
 target_link_libraries(${PROJECT_NAME}_benchmark PRIVATE ${PROJECT_NAME}_objs userver::ubench)
 add_google_benchmark_tests(${PROJECT_NAME}_benchmark)
 

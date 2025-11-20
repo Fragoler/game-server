@@ -1,4 +1,4 @@
-#include <greeting.hpp>
+#include <server/view/greeting.hpp>
 
 #include <fmt/format.h>
 
